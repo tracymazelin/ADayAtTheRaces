@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.dogNumber = new System.Windows.Forms.NumericUpDown();
             this.Label1 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             this.Dog4 = new System.Windows.Forms.PictureBox();
             this.Dog2 = new System.Windows.Forms.PictureBox();
             this.racetrackPictureBox = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dogNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.betAmount)).BeginInit();
@@ -74,9 +76,9 @@
             this.GroupBox1.Controls.Add(this.player2Radio);
             this.GroupBox1.Controls.Add(this.player1Radio);
             this.GroupBox1.Controls.Add(this.minimumBetLabel);
-            this.GroupBox1.Location = new System.Drawing.Point(75, 235);
+            this.GroupBox1.Location = new System.Drawing.Point(0, 248);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(818, 192);
+            this.GroupBox1.Size = new System.Drawing.Size(754, 192);
             this.GroupBox1.TabIndex = 16;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Betting Parlor";
@@ -156,7 +158,7 @@
             // race
             // 
             this.race.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.race.Location = new System.Drawing.Point(504, 54);
+            this.race.Location = new System.Drawing.Point(441, 51);
             this.race.Name = "race";
             this.race.Size = new System.Drawing.Size(228, 60);
             this.race.TabIndex = 8;
@@ -250,7 +252,7 @@
             // Dog1
             // 
             this.Dog1.Image = global::ADayAtTheRaces.Properties.Resources.dog;
-            this.Dog1.Location = new System.Drawing.Point(199, 25);
+            this.Dog1.Location = new System.Drawing.Point(82, 23);
             this.Dog1.Name = "Dog1";
             this.Dog1.Size = new System.Drawing.Size(75, 23);
             this.Dog1.TabIndex = 12;
@@ -259,7 +261,7 @@
             // Dog3
             // 
             this.Dog3.Image = global::ADayAtTheRaces.Properties.Resources.dog;
-            this.Dog3.Location = new System.Drawing.Point(198, 125);
+            this.Dog3.Location = new System.Drawing.Point(81, 123);
             this.Dog3.Name = "Dog3";
             this.Dog3.Size = new System.Drawing.Size(77, 22);
             this.Dog3.TabIndex = 15;
@@ -268,7 +270,7 @@
             // Dog4
             // 
             this.Dog4.Image = global::ADayAtTheRaces.Properties.Resources.dog;
-            this.Dog4.Location = new System.Drawing.Point(200, 178);
+            this.Dog4.Location = new System.Drawing.Point(83, 176);
             this.Dog4.Name = "Dog4";
             this.Dog4.Size = new System.Drawing.Size(75, 22);
             this.Dog4.TabIndex = 14;
@@ -277,7 +279,7 @@
             // Dog2
             // 
             this.Dog2.Image = global::ADayAtTheRaces.Properties.Resources.dog;
-            this.Dog2.Location = new System.Drawing.Point(199, 69);
+            this.Dog2.Location = new System.Drawing.Point(82, 67);
             this.Dog2.Name = "Dog2";
             this.Dog2.Size = new System.Drawing.Size(76, 22);
             this.Dog2.TabIndex = 13;
@@ -286,17 +288,21 @@
             // racetrackPictureBox
             // 
             this.racetrackPictureBox.Image = global::ADayAtTheRaces.Properties.Resources.racetrack;
-            this.racetrackPictureBox.Location = new System.Drawing.Point(189, 14);
+            this.racetrackPictureBox.Location = new System.Drawing.Point(72, 12);
             this.racetrackPictureBox.Name = "racetrackPictureBox";
             this.racetrackPictureBox.Size = new System.Drawing.Size(601, 203);
             this.racetrackPictureBox.TabIndex = 17;
             this.racetrackPictureBox.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 452);
+            this.ClientSize = new System.Drawing.Size(755, 452);
             this.Controls.Add(this.Dog1);
             this.Controls.Add(this.Dog3);
             this.Controls.Add(this.Dog4);
@@ -343,6 +349,7 @@
         internal System.Windows.Forms.Label minimumBetLabel;
         internal System.Windows.Forms.PictureBox Dog2;
         internal System.Windows.Forms.PictureBox racetrackPictureBox;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

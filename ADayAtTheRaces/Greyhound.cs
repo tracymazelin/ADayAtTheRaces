@@ -14,21 +14,27 @@ namespace ADayAtTheRaces
         public PictureBox MyPictureBox = null;
         public int Location = 0;
         public Random Randomizer;
-
-       //Not sure where this goes yet.
-       
-
+        
         public bool Run()
         {
-            this.Randomizer = new Random(); 
-            
-            return true;
+           
+           int moveForward = Randomizer.Next(1,8);
+           Location += moveForward; 
+           MyPictureBox.Left = StartingPosition + Location;
+
+           if (MyPictureBox.Left == RacetrackLength)
+           {
+               
+               return true;
+              
+           } else return false;
+           
         }
 
         public void TakeStartingPosition()
         {
             Location = 0;
-           // MyPictureBox = 0;
+           // MyPictureBox = null;    
         }
 
 

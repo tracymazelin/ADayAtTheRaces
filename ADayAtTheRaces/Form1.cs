@@ -14,17 +14,20 @@ namespace ADayAtTheRaces
     {
         Greyhound[] dogs = new Greyhound[4];
         Person[] players = new Person[3];
+
+        Random MyRandomizer = new Random();
+       
                 
         public Form1()
         {
             InitializeComponent();
-
+                                  
 			dogs[0] = new Greyhound()
 	        {
 		        MyPictureBox = Dog1,
 		        StartingPosition = Dog1.Left,
 		        RacetrackLength = racetrackPictureBox.Width - Dog1.Width,
-		       // Randomizer = MyRandomizer
+                Randomizer = MyRandomizer
 	        };
 
             dogs[1] = new Greyhound()
@@ -32,7 +35,7 @@ namespace ADayAtTheRaces
                 MyPictureBox = Dog2,
                 StartingPosition = Dog2.Left,
                 RacetrackLength = racetrackPictureBox.Width - Dog2.Width,
-                //Randomizer = MyRandomizer
+                Randomizer = MyRandomizer
             };
 
             dogs[2] = new Greyhound()
@@ -40,7 +43,15 @@ namespace ADayAtTheRaces
                 MyPictureBox = Dog3,
                 StartingPosition = Dog3.Left,
                 RacetrackLength = racetrackPictureBox.Width - Dog3.Width,
-                //Randomizer = MyRandomizer
+                Randomizer = MyRandomizer
+            };
+
+            dogs[3] = new Greyhound()
+            {
+                MyPictureBox = Dog4,
+                StartingPosition = Dog4.Left,
+                RacetrackLength = racetrackPictureBox.Width - Dog4.Width,
+                Randomizer = MyRandomizer
             };
 
             players[0] = new Person("David", null, 50, player1Radio, player1BetLabel);
@@ -57,7 +68,12 @@ namespace ADayAtTheRaces
 
         private void raceButton_Click(object sender, EventArgs e)
         {
-
+            foreach (Greyhound dog in dogs)
+            {
+                timer1.Start();            
+                dog.TakeStartingPosition();
+            }
+           
         }
 
         private void Bet_Click(object sender, EventArgs e)
@@ -87,6 +103,23 @@ namespace ADayAtTheRaces
         private void player3RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             name.Text = players[2].Name;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.dogs.Length; i++)
+            {
+                if (dogs[i].Run())
+                {
+                    MessageBox.Show("We have a Winner!");
+                    timer1.Stop();
+
+                }
+                
+
+
+            }
+            
         }
     }
 }

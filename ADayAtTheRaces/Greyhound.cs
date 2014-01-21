@@ -17,24 +17,22 @@ namespace ADayAtTheRaces
         
         public bool Run()
         {
-           
-           int moveForward = Randomizer.Next(1,8);
-           Location += moveForward; 
+           Location += Randomizer.Next(1, 8);
            MyPictureBox.Left = StartingPosition + Location;
-
-           if (MyPictureBox.Left == RacetrackLength)
-           {
-               
-               return true;
-              
-           } else return false;
            
+           if (MyPictureBox.Left > RacetrackLength)
+           {
+              return true; 
+           }
+           else {
+               return false;
+           }
         }
 
         public void TakeStartingPosition()
         {
             Location = 0;
-           // MyPictureBox = null;    
+            MyPictureBox.Left = StartingPosition; 
         }
 
 

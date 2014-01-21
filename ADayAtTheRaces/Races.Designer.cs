@@ -1,6 +1,6 @@
 ﻿namespace ADayAtTheRaces
 {
-    partial class Form1
+    partial class Races
     {
         /// <summary>
         /// Required designer variable.
@@ -50,6 +50,7 @@
             this.Dog2 = new System.Windows.Forms.PictureBox();
             this.racetrackPictureBox = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dogNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.betAmount)).BeginInit();
@@ -62,6 +63,7 @@
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.label2);
             this.GroupBox1.Controls.Add(this.dogNumber);
             this.GroupBox1.Controls.Add(this.Label1);
             this.GroupBox1.Controls.Add(this.betAmount);
@@ -138,18 +140,18 @@
             // 
             // setBet
             // 
-            this.setBet.Location = new System.Drawing.Point(68, 150);
+            this.setBet.Location = new System.Drawing.Point(390, 150);
             this.setBet.Name = "setBet";
             this.setBet.Size = new System.Drawing.Size(75, 23);
             this.setBet.TabIndex = 10;
-            this.setBet.Text = "Bets";
+            this.setBet.Text = "Place Bet";
             this.setBet.UseVisualStyleBackColor = true;
             this.setBet.Click += new System.EventHandler(this.Bet_Click);
             // 
             // name
             // 
             this.name.AutoSize = true;
-            this.name.Location = new System.Drawing.Point(12, 152);
+            this.name.Location = new System.Drawing.Point(40, 150);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(33, 13);
             this.name.TabIndex = 9;
@@ -298,7 +300,16 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form1
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(103, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "bets";
+            // 
+            // Races
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -312,8 +323,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Races";
+            this.Text = "A Day At The Races";
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dogNumber)).EndInit();
@@ -350,6 +361,7 @@
         internal System.Windows.Forms.PictureBox Dog2;
         internal System.Windows.Forms.PictureBox racetrackPictureBox;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -14,52 +14,38 @@ namespace ADayAtTheRaces
         public int Cash;
         public RadioButton MyRadioButton;
         public Label MyLabel;
-
-        public Person(string Name, Bet MyBet, int Cash, RadioButton MyRadio, Label MyLabel)
-        {
-            this.Name = Name;
-            this.MyBet = MyBet;
-            this.Cash = Cash;
-            this.MyRadioButton = MyRadio;
-            this.MyLabel = MyLabel;
-
-        }
-        
+                       
         public void UpdateLabels()
         {
-           
-            if (MyBet == null)
-            {
-                MyLabel.Text = String.Format(this.Name + " hasn't placed a bet");
+            if (MyBet == null) {
+                MyLabel.Text = String.Format("{0} hasn't placed a bet", this.Name);
             }
-            
+
             else MyLabel.Text = MyBet.GetDescription();
-            MyRadioButton.Text = this.Name + " has " + this.Cash + " bucks";
-           
-             
+            MyRadioButton.Text = String.Format("{0} has {1} bucks", this.Name, this.Cash);  
         }
 
         public void ClearBet()
         {
-
+            MyBet.Amount = 0;
         }
 
 
         public bool PlaceBet(int BetAmount, int DogToWin)
         {
-            if (BetAmount <= Cash)
-            {
-                MyBet = new Bet(BetAmount, DogToWin, this);
+            if (BetAmount <= Cash) {
+                MyBet = new Bet { Amount = BetAmount, Dog = DogToWin, Bettor = this };
+                UpdateLabels();
                 return true;
             }
-            else return false;   
-        
+            else return false;           
         }
 
         public void Collect(int Winner)
         {
- 
+            Cash += MyBet.PayOut(Winner);
+            ClearBet();
+            UpdateLabels();
         }
-
     }
 }
